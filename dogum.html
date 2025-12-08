@@ -59,9 +59,14 @@ function gunesBurcu(tarih) {
 // ✅ Ay burcu (yaklaşık hesaplama – 28 günlük döngü)
 function ayBurcu(tarih) {
     const burclar = ["Koç","Boğa","İkizler","Yengeç","Aslan","Başak","Terazi","Akrep","Yay","Oğlak","Kova","Balık"];
-    let baslangic = new Date("2000-01-06");
-    let fark = Math.floor((tarih - baslangic) / (1000 * 60 * 60 * 24));
-    let index = Math.floor((fark % 28) / (28 / 12));
+    let baslangic = new Date("2000-01-06T00:00:00");
+    let farkGun = Math.floor((tarih - baslangic) / (1000 * 60 * 60 * 24));
+
+    // negatifse bile pozitif döngüye sok
+    let mod28 = ((farkGun % 28) + 28) % 28;
+    let index = Math.floor(mod28 / (28 / 12));
+
+    if (index < 0 || index > 11) index = 0;
     return burclar[index];
 }
 
@@ -82,9 +87,6 @@ function yukselenBurcu(saat) {
     if (h >= 2 && h < 4) return "Kova";
     return "Balık"; // 4–6
 }
-
-
-
 // ✅ Ana hesaplama
 function hesapla() {
     let tarih = document.getElementById("tarih").value;
@@ -109,4 +111,5 @@ function hesapla() {
 
 </body>
 </html>
+
 
