@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aşk Uyumu Hesaplama</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(180deg, #6A00F4, #0A0F3C);
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-top: 40px;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        p.subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            max-width: 650px;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 25px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 450px;
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        label {
+            font-size: 15px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 9px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .btn {
+            display: block;
+            margin-top: 22px;
+            padding: 12px;
+            text-align: center;
+            border: 2px solid #D4AF37;
+            border-radius: 10px;
+            color: #D4AF37;
+            font-size: 17px;
+            text-decoration: none;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #D4AF37;
+            color: #0A0F3C;
+            box-shadow: 0 0 15px #D4AF37;
+        }
+
+        .note-box {
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.45);
+            padding: 18px;
+            border-radius: 10px;
+            max-width: 650px;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .note-box strong {
+            color: #FFD966;
+        }
+
+        #sonuc {
+            display: none;
+            margin-top: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 650px;
+            text-align: left;
+        }
+
+        #sonuc h2 {
+            text-align: center;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            opacity: 0.6;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Aşk Uyumu Hesaplama</h1>
+<p class="subtitle">
+    Burçlar arası uyum, sadece “iyi – kötü” meselesi değil; iki insanın enerjilerinin nasıl çalıştığıyla ilgili.
+    Aşağıdaki formu doldurun, ardından hem burç uyumunu hem de benim bakış açımdan kısa bir yorum görün.
+</p>
+
+<div class="form-container">
+    <label>Sizin İsminiz (isteğe bağlı)</label>
+    <input id="isim1" type="text" placeholder="Örn: Elif">
+
+    <label>Burcunuz</label>
+    <select id="burc1">
+        <option value="">Seçiniz</option>
+        <option>Koç</option>
+        <option>Boğa</option>
+        <option>İkizler</option>
+        <option>Yengeç</option>
+        <option>Aslan</option>
+        <option>Başak</option>
+        <option>Terazi</option>
+        <option>Akrep</option>
+        <option>Yay</option>
+        <option>Oğlak</option>
+        <option>Kova</option>
+        <option>Balık</option>
+    </select>
+
+    <label>Partner İsmi (isteğe bağlı)</label>
+    <input id="isim2" type="text" placeholder="Örn: Mert">
+
+    <label>Partner Burcu</label>
+    <select id="burc2">
+        <option value="">Seçiniz</option>
+        <option>Koç</option>
+        <option>Boğa</option>
+        <option>İkizler</option>
+        <option>Yengeç</option>
+        <option>Aslan</option>
+        <option>Başak</option>
+        <option>Terazi</option>
+        <option>Akrep</option>
+        <option>Yay</option>
+        <option>Oğlak</option>
+        <option>Kova</option>
+        <option>Balık</option>
+    </select>
+
+    <div class="btn" id="uyumuHesaplaBtn">Aşk Uyumunu Göster</div>
+</div>
+
+<div id="sonuc">
+    <h2>Aşk Uyumu Sonucu</h2>
+    <p id="sonucMetni"></p>
+</div>
+
+<div class="note-box">
+    <strong>Not – Dürüstlük İlkesi:</strong><br><br>
+    Bu sayfada gördüğünüz aşk uyumu değerlendirmeleri <strong>tamamen yorum odaklıdır</strong>. Burçlar arası
+    uyumu anlatırken, kimsenin duygusunu yönlendiren “kesin hükümler” vermemeye özen gösteriyorum. Burada okuduklarınız,
+    iki insanın potansiyel enerjisini anlamanıza yardımcı olmak içindir; karar her zaman sizde.<br><br>
+    İsterseniz, daha teknik ve detaylı uyum analizi için profesyonel astroloji sistemlerini de kullanabilirsiniz.
+</div>
+
+<footer>
+    © 2025 Aşk Uyumu & Astroloji – Yorumlar bana, seçimler size aittir
+</footer>
+
+<script>
+function yorumGetir(burc1, burc2) {
+    const cift = burc1 + "-" + burc2;
+
+    // Burada bazı örnek eşleşmelere özel yorumlar girdim.
+    // İstersen bunları kendi tarzına göre çoğaltıp değiştirebilirsin.
+    const yorumlar = {
+        "Koç-Koç": "İki ateş burcu bir araya geldiğinde ilişki tutkulu ama zaman zaman ego savaşlarına açık olabilir. Doğru iletişimle birlikte çok güçlü bir ekip olabilirsiniz.",
+        "Boğa-Başak": "Toprak elementinin bu ikilisi, güven ve sadakat üzerine kurulu, sakin ama derin bir bağ yaratma potansiyeline sahip.",
+        "Yengeç-Oğlak": "Karşıt burç olmalarına rağmen, doğru dengede birbirlerini tamamlayan güçlü bir çift olabilirler. Biri duyguyu, diğeri yapıyı getirir.",
+        "Aslan-Kova": "Aykırı ama çekici bir kombinasyon. Farklılıklar önce çeker, sonra sınar. Ego ve özgürlük alanı iyi yönetildiğinde çok özel bir bağ doğabilir.",
+        "Terazi-İkizler": "Hava elementinin bu uyumlu ikilisi, zihinsel bağlantı ve sosyal uyum üzerinden güçlü bir ilişki kurabilir.",
+        "Balık-Akrep": "Derin duygular, sezgisel bağ ve yoğun bir çekim. Duygusal iniş çıkışlar olsa da ruhsal bir birliktelik hissi verebilir."
+    };
+
+    if (yorumlar[cift]) {
+        return yorumlar[cift];
+    }
+
+    // Genel, yumuşak bir varsayılan yorum:
+    return burc1 + " ve " + burc2 + " ikilisi, doğru iletişim ve birbirini anlama niyetiyle birlikte " +
+           "ilişkide önemli bir potansiyel taşıyor. Her burç kombinasyonu gibi, bu ilişki de emek, saygı " +
+           "ve açık iletişimle şekillenir. Astrolojik uyum bir harita sunar; yolu birlikte yürümek ise size kalır.";
+}
+
+document.getElementById("uyumuHesaplaBtn").addEventListener("click", function () {
+    const isim1 = document.getElementById("isim1").value.trim();
+    const isim2 = document.getElementById("isim2").value.trim();
+    const burc1 = document.getElementById("burc1").value;
+    const burc2 = document.getElementById("burc2").value;
+
+    if (!burc1 || !burc2) {
+        alert("Lütfen kendi burcunuzu ve partner burcunu seçin.");
+        return;
+    }
+
+    let baslikKisim = "";
+
+    if (isim1 && isim2) {
+        baslikKisim = "<strong>" + isim1 + "</strong> (" + burc1 + ") ile <strong>" + isim2 + "</strong> (" + burc2 + ") arasındaki enerji:<br><br>";
+    } else if (isim1 && !isim2) {
+        baslikKisim = "<strong>" + isim1 + "</strong> (" + burc1 + ") ve " + burc2 + " burcu arasındaki enerji:<br><br>";
+    } else if (!isim1 && isim2) {
+        baslikKisim = burc1 + " burcu ile <strong>" + isim2 + "</strong> (" + burc2 + ") arasındaki enerji:<br><br>";
+    } else {
+        baslikKisim = burc1 + " ve " + burc2 + " burçları arasındaki enerji:<br><br>";
+    }
+
+    const yorum = yorumGetir(burc1, burc2);
+
+    document.getElementById("sonucMetni").innerHTML = baslikKisim + yorum;
+    document.getElementById("sonuc").style.display = "block";
+});
+</script>
+
+</body>
+</html>

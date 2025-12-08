@@ -1,41 +1,149 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>İletişim - Elif Astroloji</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(180deg, #6A00F4, #0A0F3C);
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-top: 40px;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        p.subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            max-width: 650px;
+        }
+
+        .contact-box {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 25px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 450px;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        label {
+            font-size: 15px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            font-size: 15px;
+        }
+
+        textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        .btn {
+            display: block;
+            margin-top: 22px;
+            padding: 12px;
+            text-align: center;
+            border: 2px solid #D4AF37;
+            border-radius: 10px;
+            color: #D4AF37;
+            font-size: 17px;
+            text-decoration: none;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #D4AF37;
+            color: #0A0F3C;
+            box-shadow: 0 0 15px #D4AF37;
+        }
+
+        .info-box {
+            margin-top: 25px;
+            background: rgba(0, 0, 0, 0.45);
+            padding: 18px;
+            border-radius: 10px;
+            max-width: 650px;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .info-box strong {
+            color: #FFD966;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            opacity: 0.6;
+            font-size: 13px;
+        }
+    </style>
+    
 </head>
-<body class="page-iletisim">
-  <header>
-    <h1>İletişim</h1>
-    <nav>
-      <a href="index.html">Burç Yorumları</a>
-      <a href="dogum.html">Doğum Haritası</a>
-      <a href="iletisim.html" aria-current="page">İletişim</a>
-    </nav>
-  </header>
 
-  <main class="container contact-center">
-    <h2>Bana Ulaşın</h2>
-    <p>Mail: elif2502@gmail.com</p>
-    <p>Instagram: @simsek.181</p>
+<body>
 
-    <form class="contact-form">
-      <label>Ad Soyad
-        <input type="text" name="name" required>
-      </label>
-      <label>E-posta
-        <input type="email" name="email" required>
-      </label>
-      <label>Mesaj
-        <textarea name="message" rows="5" required></textarea>
-      </label>
-      <button type="submit">Gönder</button>
-    </form>
-  </main>
+<h1>İletişim</h1>
+<p class="subtitle">
+    Aşağıdaki form üzerinden bana ulaşabilir veya sosyal medya hesaplarımdan iletişim kurabilirsiniz.
+</p>
 
-  <footer>
-    <p>© 2025 Elif Astroloji</p>
-  </footer>
+<div class="contact-box">
+    <label>Ad Soyad</label>
+    <input type="text" placeholder="Adınız">
+
+    <label>E‑posta</label>
+    <input type="email" placeholder="ornek@mail.com">
+
+    <label>Mesajınız</label>
+    <textarea placeholder="Mesajınızı buraya yazın..."></textarea>
+
+    <div class="btn">Mesajı Gönder</div>
+</div>
+
+<div class="info-box">
+    <strong>Alternatif İletişim:</strong><br><br>
+    E‑posta: <span style="color:#FFD966;">elify.2502@gmail.com</span><br>
+    Instagram: <span style="color:#FFD966;">@simsek.181</span><br>
+    WhatsApp: <span style="color:#FFD966;">05xx xxx xx xx</span><br><br>
+
+    
+</div>
+
+<footer>
+    © 2025 Astroloji & İletişim – Tüm Hakları Saklıdır
+</footer>
+
 </body>
+<div class="logo">
+    <img src="logo.png" alt="Logo">
+    <span>Astroloji</span>
+</div>
+
 </html>

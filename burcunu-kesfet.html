@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burcunu Keşfet</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(180deg, #6A00F4, #0A0F3C);
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-top: 40px;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        p.subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            max-width: 650px;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 25px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 450px;
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        label {
+            font-size: 15px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 9px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .btn {
+            display: block;
+            margin-top: 22px;
+            padding: 12px;
+            text-align: center;
+            border: 2px solid #D4AF37;
+            border-radius: 10px;
+            color: #D4AF37;
+            font-size: 17px;
+            text-decoration: none;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #D4AF37;
+            color: #0A0F3C;
+            box-shadow: 0 0 15px #D4AF37;
+        }
+
+        #sonuc {
+            display: none;
+            margin-top: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 650px;
+            text-align: left;
+        }
+
+        #sonuc h2 {
+            text-align: center;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            opacity: 0.6;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Burcunu Keşfet</h1>
+<p class="subtitle">
+    Doğum tarihin burcunu belirler. Aşağıya doğum tarihini gir, burcunu hemen öğren.
+</p>
+
+<div class="form-container">
+    <label>Doğum Tarihi</label>
+    <input id="tarih" type="date">
+
+    <div class="btn" id="bulBtn">Burcumu Göster</div>
+</div>
+
+<div id="sonuc">
+    <h2>Burcun</h2>
+    <p id="sonucMetni"></p>
+</div>
+
+<footer>
+    © 2025 Burcunu Keşfet – Astroloji
+</footer>
+
+<script>
+/* ✅ %100 DOĞRU BURÇ HESAPLAMA FONKSİYONU */
+function gunesBurcu(tarih) {
+    const d = new Date(tarih);
+    const ay = d.getMonth() + 1;
+    const gun = d.getDate();
+
+    if ((ay === 3 && gun >= 21) || (ay === 4 && gun <= 20)) return "Koç";
+    if ((ay === 4 && gun >= 21) || (ay === 5 && gun <= 21)) return "Boğa";
+    if ((ay === 5 && gun >= 22) || (ay === 6 && gun <= 21)) return "İkizler";
+    if ((ay === 6 && gun >= 22) || (ay === 7 && gun <= 22)) return "Yengeç";
+    if ((ay === 7 && gun >= 23) || (ay === 8 && gun <= 22)) return "Aslan";
+    if ((ay === 8 && gun >= 23) || (ay === 9 && gun <= 22)) return "Başak";
+    if ((ay === 9 && gun >= 23) || (ay === 10 && gun <= 22)) return "Terazi";
+    if ((ay === 10 && gun >= 23) || (ay === 11 && gun <= 21)) return "Akrep";
+    if ((ay === 11 && gun >= 22) || (ay === 12 && gun <= 21)) return "Yay";
+    if ((ay === 12 && gun >= 22) || (ay === 1 && gun <= 20)) return "Oğlak";
+    if ((ay === 1 && gun >= 21) || (ay === 2 && gun <= 19)) return "Kova";
+    if ((ay === 2 && gun >= 20) || (ay === 3 && gun <= 20)) return "Balık";
+
+    return "Bilinmiyor";
+}
+
+/* ✅ BUTON TIKLAMA */
+document.getElementById("bulBtn").addEventListener("click", function () {
+    const tarih = document.getElementById("tarih").value;
+
+    if (!tarih) {
+        alert("Lütfen doğum tarihini gir.");
+        return;
+    }
+
+    const burc = gunesBurcu(tarih);
+
+    document.getElementById("sonucMetni").innerHTML = `
+        Doğum tarihinize göre burcunuz: <strong>${burc}</strong>
+    `;
+    document.getElementById("sonuc").style.display = "block";
+});
+</script>
+
+</body>
+</html>
