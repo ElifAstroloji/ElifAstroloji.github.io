@@ -65,7 +65,7 @@ function ayBurcu(tarih) {
     return burclar[index];
 }
 
-// ✅ Yükselen burç (saat aralığına göre)
+// ✅ Yükselen burç (daha düzenli saat aralığına göre)
 function yukselenBurcu(saat) {
     let h = parseInt(saat.split(":")[0]);
 
@@ -77,11 +77,13 @@ function yukselenBurcu(saat) {
     if (h >= 16 && h < 18) return "Başak";
     if (h >= 18 && h < 20) return "Terazi";
     if (h >= 20 && h < 22) return "Akrep";
-    if (h >= 22 || h < 0) return "Yay";
+    if (h >= 22 && h < 24) return "Yay";
     if (h >= 0 && h < 2) return "Oğlak";
     if (h >= 2 && h < 4) return "Kova";
-    return "Balık";
+    return "Balık"; // 4–6
 }
+
+
 
 // ✅ Ana hesaplama
 function hesapla() {
@@ -107,3 +109,4 @@ function hesapla() {
 
 </body>
 </html>
+
