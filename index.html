@@ -3,48 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astroloji | Ana Sayfa</title>
-
-    <!-- ✅ Tüm tasarım style.css’ten geliyor -->
+    <title>Elif Astroloji – Galaktik 3D</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ana Sayfa</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Sabit menü için CSS */
+    nav {
+      background-color: #a23ca4;
+      padding: 10px;
+      text-align: center;
+      position: fixed;   /* Sabit hale getirir */
+      top: 0;            /* Sayfanın en üstüne yerleştirir */
+      left: 0;
+      width: 100%;       /* Tüm genişliği kaplar */
+      z-index: 1000;     /* İçeriğin üstünde kalır */
+    }
+    nav a {
+      color: #0f53d0;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffd700; /* Altın rengi hover efekti */
+    }
+    body {
+      margin: 0;
+      padding-top: 60px; /* Menü sabit olduğu için içerik menünün altında başlasın */
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+      color: #d52e2e;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sabit Menü -->
+  <nav>
+  <a href="index.html">Ana Sayfa</a>
+  <a href="dogum.html">Doğum Haritası</a>
+  <a href="evler.html">12 Ev</a>
+  <a href="burc.html">Burçlar</a>
+  <a href="iletisim.html">İletişim</a>
+  <a href="kader.html">Kader Matrisi</a> <!-- Yeni eklenen menü -->
+</nav>
 
-<header>
-    <h1>Astroloji Dünyasına Hoş Geldin</h1>
-    <p class="subtitle">
-        Burcunu keşfet, doğum haritanı incele ve astrolojinin büyülü dünyasına adım at.
-    </p>
-</header>
 
-<section class="section">
-    <div class="burc-grid">
+  <!-- Ana sayfa içeriği -->
+  <h1>Hoş geldiniz!</h1>
+  <p style="text-align:center;">Burada astroloji içeriklerini keşfedebilirsiniz.</p>
+</body>
+</html>
 
-        <div class="burc-card">
-            <h3>Burcunu Keşfet</h3>
-            <p>Doğum tarihine göre burcunu öğren.</p>
-            <a href="burcunu-kesfet.html">Hemen Başla</a>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Galaktik Astroloji Portalına Hoş Geldin</h1>
+            <p>Mor bir gezegenin yörüngesinden, kendi doğum haritanın evrenine bak.</p>
+            <a href="#basla" class="btn">Hemen Başla</a>
+            
         </div>
+        <div class="planet"></div>
+    </section>
 
-        <div class="burc-card">
-            <h3>Burçlar</h3>
-            <p>12 burcun özelliklerini incele.</p>
-            <a href="burclar.html">Burçları Gör</a>
+    <!-- NELER SUNUYORUM -->
+    <section id="basla" class="cards">
+        <h2>Neler Sunuyorum?</h2>
+
+        <div class="card-container">
+            <div class="card">
+                <span class="icon">♈</span>
+                <h3>Burçları Gör</h3>
+                <p>12 burcun enerjisini ve uyumlarını keşfet.</p>
+                <a href="burc.html" class="card-btn">Burç Sayfasına Git →</a>
+            </div>
+
+            <div class="card">
+                <span class="icon">☉</span>
+                <h3>Haritamı Hesapla</h3>
+                <p>Doğum bilgilerine göre kişisel haritanı oluştur.</p>
+                <a href="dogum.html" class="card-btn">Haritayı Hesapla →</a>
+            </div>
+
+            <div class="card">
+                <span class="icon">✧</span>
+                <h3>Astrolojiye Başla</h3>
+                <p>Temel kavramları sade anlatımlarla öğren.</p>
+                <a href="astroloji.html" class="card-btn">Rehberleri Gör →</a>
+            </div>
         </div>
+    </section>
 
-        <div class="burc-card">
-            <h3>Doğum Haritası</h3>
-            <p>Güneş, Ay ve yükselen burcunu öğren.</p>
-            <a href="dogum.html">Haritamı Hesapla</a>
+    <!-- YAZILAR -->
+    <section class="yazilar">
+        <h2>Astroloji Yazıları</h2>
+
+        <div class="yazi-list">
+            <div class="yazi">
+                <h3>Astrolojiye Giriş</h3>
+                <p>Burç, harita, ev, gezegen derken kafan karışmasın diye temel kavramları toparlıyorum.</p>
+                <a href="astroloji-giris.html">Devamını oku →</a>
+            </div>
+
+            <div class="yazi">
+                <h3>Yükselen Burç Neden Önemli?</h3>
+                <p>İlk izlenim, hayat yaklaşımı ve dış dünyaya yansıyan masken.</p>
+                <a href="yukselen-onemli.html">Devamını oku →</a>
+            </div>
+
+   <div class="yazi">
+    <h3>Ay Burcu ve Duygular</h3>
+    <p>Ay burcun, duygusal ihtiyaçların ve güvende hissettiğin alanı anlatır.</p>
+    <a href="ay-burcu-duygular.html">Devamını oku →</a>
+</div>
+
         </div>
+    </section>
 
-    </div>
-</section>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2025 Elif Astroloji – Mor Gezegen Evreni</p>
+    </footer>
 
-<footer>
-    © 2025 Astroloji Sitesi – Tüm Hakları Saklıdır
-</footer>
-
+    <script src="main.js"></script>
 </body>
 </html>

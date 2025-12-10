@@ -1,115 +1,328 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+  <link rel="stylesheet" href="style.css">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doğum Haritası | Astroloji</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Doğum Haritası – Köprü Sayfa</title>
+
+    <style>
+      .logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: glow 2.5s infinite alternate ease-in-out;
+}
+
+.logo img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    border-radius: 50%;
+    animation: spin 6s linear infinite;
+    filter: drop-shadow(0 0 10px #FFD966);
+}
+
+.logo span {
+    font-size: 24px;
+    font-weight: 600;
+    color: #FFD966;
+    letter-spacing: 1px;
+    animation: spinText 8s linear infinite;
+}
+
+/* Dönen efekt */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Yazının hafif dönmesi */
+@keyframes spinText {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+}
+
+/* Parlama efekti */
+@keyframes glow {
+    0% { filter: drop-shadow(0 0 5px #FFD966); }
+    100% { filter: drop-shadow(0 0 20px #FFECAA); }
+}
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(180deg, #6A00F4, #0A0F3C);
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-top: 40px;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        p.subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            max-width: 600px;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 25px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 450px;
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        label {
+            font-size: 15px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 9px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .btn {
+            display: block;
+            margin-top: 22px;
+            padding: 12px;
+            text-align: center;
+            border: 2px solid #D4AF37;
+            border-radius: 10px;
+            color: #D4AF37;
+            font-size: 17px;
+            text-decoration: none;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #D4AF37;
+            color: #0A0F3C;
+            box-shadow: 0 0 15px #D4AF37;
+        }
+
+        .note-box {
+            margin-top: 25px;
+            background: rgba(0, 0, 0, 0.45);
+            padding: 18px;
+            border-radius: 10px;
+            max-width: 600px;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .note-box strong {
+            color: #FFD966;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            opacity: 0.6;
+            font-size: 13px;
+        }
+    </style>
+   <style>
+/* BURAYA EKLEYECEKSİN */
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: glow 2.5s infinite alternate ease-in-out;
+}
+
+.logo img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    border-radius: 50%;
+    animation: spin 6s linear infinite;
+    filter: drop-shadow(0 0 10px #FFD966);
+}
+
+.logo span {
+    font-size: 24px;
+    font-weight: 600;
+    color: #FFD966;
+    letter-spacing: 1px;
+    animation: spinText 8s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes spinText {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+}
+
+@keyframes glow {
+    0% { filter: drop-shadow(0 0 5px #FFD966); }
+    100% { filter: drop-shadow(0 0 20px #FFECAA); }
+}
+</style>
+
+
+
 </head>
 
 <body>
-
-<header>
-    <h1>Doğum Haritası Hesaplama</h1>
-    <p class="subtitle">Güneş, Ay ve Yükselen burcunu öğrenmek için bilgilerini gir.</p>
-</header>
-
-<section class="section">
-    <div class="form-container">
-
-        <label>Doğum Tarihi</label>
-        <input type="date" id="tarih">
-
-        <label>Doğum Saati</label>
-        <input type="time" id="saat">
-
-        <label>Doğum Yeri (Şehir)</label>
-        <input type="text" id="sehir" placeholder="İstanbul, Ankara...">
-
-        <a class="btn" onclick="hesapla()">Haritamı Hesapla</a>
-    </div>
-
-    <div id="sonuc" style="margin-top:30px; font-size:20px; font-weight:bold; text-align:center;"></div>
-</section>
-
-<footer>
-    © 2025 Astroloji Sitesi – Tüm Hakları Saklıdır
-</footer>
-
-<script>
-// ✅ Güneş burcu hesaplama
-function gunesBurcu(tarih) {
-    let ay = tarih.getMonth() + 1;
-    let gun = tarih.getDate();
-
-    if ((gun >= 21 && ay == 3) || (gun <= 20 && ay == 4)) return "Koç";
-    if ((gun >= 21 && ay == 4) || (gun <= 21 && ay == 5)) return "Boğa";
-    if ((gun >= 22 && ay == 5) || (gun <= 22 && ay == 6)) return "İkizler";
-    if ((gun >= 23 && ay == 6) || (gun <= 22 && ay == 7)) return "Yengeç";
-    if ((gun >= 23 && ay == 7) || (gun <= 22 && ay == 8)) return "Aslan";
-    if ((gun >= 23 && ay == 8) || (gun <= 22 && ay == 9)) return "Başak";
-    if ((gun >= 23 && ay == 9) || (gun <= 22 && ay == 10)) return "Terazi";
-    if ((gun >= 23 && ay == 10) || (gun <= 21 && ay == 11)) return "Akrep";
-    if ((gun >= 22 && ay == 11) || (gun <= 21 && ay == 12)) return "Yay";
-    if ((gun >= 22 && ay == 12) || (gun <= 21 && ay == 1)) return "Oğlak";
-    if ((gun >= 22 && ay == 1) || (gun <= 19 && ay == 2)) return "Kova";
-    return "Balık";
-}
-
-// ✅ Ay burcu (yaklaşık hesaplama – 28 günlük döngü)
-function ayBurcu(tarih) {
-    const burclar = ["Koç","Boğa","İkizler","Yengeç","Aslan","Başak","Terazi","Akrep","Yay","Oğlak","Kova","Balık"];
-    let baslangic = new Date("2000-01-06T00:00:00");
-    let farkGun = Math.floor((tarih - baslangic) / (1000 * 60 * 60 * 24));
-
-    // negatifse bile pozitif döngüye sok
-    let mod28 = ((farkGun % 28) + 28) % 28;
-    let index = Math.floor(mod28 / (28 / 12));
-
-    if (index < 0 || index > 11) index = 0;
-    return burclar[index];
-}
-
-// ✅ Yükselen burç (daha düzenli saat aralığına göre)
-function yukselenBurcu(saat) {
-    let h = parseInt(saat.split(":")[0]);
-
-    if (h >= 6 && h < 8) return "Koç";
-    if (h >= 8 && h < 10) return "Boğa";
-    if (h >= 10 && h < 12) return "İkizler";
-    if (h >= 12 && h < 14) return "Yengeç";
-    if (h >= 14 && h < 16) return "Aslan";
-    if (h >= 16 && h < 18) return "Başak";
-    if (h >= 18 && h < 20) return "Terazi";
-    if (h >= 20 && h < 22) return "Akrep";
-    if (h >= 22 && h < 24) return "Yay";
-    if (h >= 0 && h < 2) return "Oğlak";
-    if (h >= 2 && h < 4) return "Kova";
-    return "Balık"; // 4–6
-}
-// ✅ Ana hesaplama
-function hesapla() {
-    let tarih = document.getElementById("tarih").value;
-    let saat = document.getElementById("saat").value;
-    let sehir = document.getElementById("sehir").value;
-
-    if (!tarih || !saat || !sehir) {
-        alert("Lütfen tüm bilgileri doldurun.");
-        return;
+    <!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ana Sayfa</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Sabit menü için CSS */
+    nav {
+      background-color: #e786ca;
+      padding: 10px;
+      text-align: center;
+      position: fixed;   /* Sabit hale getirir */
+      top: 0;            /* Sayfanın en üstüne yerleştirir */
+      left: 0;
+      width: 100%;       /* Tüm genişliği kaplar */
+      z-index: 1000;     /* İçeriğin üstünde kalır */
     }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffd700; /* Altın rengi hover efekti */
+    }
+    body {
+      margin: 0;
+      padding-top: 60px; /* Menü sabit olduğu için içerik menünün altında başlasın */
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+      color: #d162a9;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sabit Menü -->
+ <nav>
+  <a href="index.html">Ana Sayfa</a>
+  <a href="dogum.html">Doğum Haritası</a>
+  <a href="evler.html">12 Ev</a>
+  <a href="burc.html">Burçlar</a>
+  <a href="iletisim.html">İletişim</a>
+  <a href="kader.html">Kader Matrisi</a> <!-- Yeni eklenen menü -->
+</nav>
 
-    let d = new Date(tarih + "T" + saat);
 
-    let gunes = gunesBurcu(d);
-    let ay = ayBurcu(d);
-    let yukselen = yukselenBurcu(saat);
-
-    document.getElementById("sonuc").innerHTML =
-        `Güneş Burcu: ${gunes}<br>Ay Burcu: ${ay}<br>Yükselen Burç: ${yukselen}`;
-}
-</script>
-
+  <!-- Ana sayfa içeriği -->
+  <h1>Hoş geldiniz!</h1>
+  <p style="text-align:center;">Burada astroloji içeriklerini keşfedebilirsiniz.</p>
 </body>
 </html>
 
+  <div class="logo">
+    <img src="logo.png" alt="Logo">
+    <span>Astroloji</span>
+</div>
 
+
+<h1>Doğum Haritan İçin Köprü</h1>
+<p class="subtitle">
+    Aşağıdaki formu doldurduktan sonra, doğum haritanızın <strong>astronomik olarak doğru</strong> hesaplanması için
+    sizi profesyonel bir astroloji sistemine yönlendireceğim. Bu sayfadaki yorumlar bana ait, teknik hesaplama ise
+    dış sitede yapılır.
+</p>
+
+<div class="form-container">
+    <label>Ad Soyad</label>
+    <input id="ad" type="text" placeholder="Örn: Elif Yılmaz">
+
+    <label>Doğum Tarihi</label>
+    <input id="tarih" type="date">
+
+    <label>Doğum Saati</label>
+    <input id="saat" type="time">
+
+    <label>Doğum Yeri (Şehir)</label>
+    <input id="yer" type="text" placeholder="Örn: İstanbul">
+
+    <div class="btn" id="astroyaGitBtn">Profesyonel Doğum Haritasına Git</div>
+</div>
+
+<div class="note-box">
+    <strong>Not – Dürüstlük İlkesi:</strong><br><br>
+    Bu sayfada <strong>doğum haritanız teknik olarak benim tarafımdan hesaplanmıyor</strong>. Ben burada,
+    doğum haritanız çıktıktan sonra <strong>yorumlama</strong> kısmında yanınızda olmayı tercih ediyorum.
+    Güneş, Ay, yükselen ve gezegen konumlarınız; bağlı olduğunuz profesyonel astroloji sistemi tarafından
+    hesaplanacaktır.<br><br>
+
+    Harita çıktıktan sonra, buradaki sayfada ister genel burç yorumlarımı okuyabilir, isterseniz
+    bireysel danışmanlık için benimle ayrıca iletişime geçebilirsiniz.
+</div>
+
+<footer>
+    © 2025 Astroloji & Doğum Haritası – Yorumlar bana, teknik hesaplama profesyonel sisteme aittir
+</footer>
+
+<script>
+document.getElementById("astroyaGitBtn").addEventListener("click", function () {
+    const ad = document.getElementById("ad").value.trim();
+    const tarih = document.getElementById("tarih").value;
+    const saat = document.getElementById("saat").value;
+    const yer = document.getElementById("yer").value.trim();
+
+    if (!ad || !tarih || !saat || !yer) {
+        alert("Lütfen tüm bilgileri eksiksiz doldurun.");
+        return;
+    }
+
+    alert(
+        "Şimdi seni profesyonel doğum haritası hesaplama sistemine yönlendireceğim.\n\n" +
+        "Orada haritanı çıkardıktan sonra buraya geri dönüp, benim yorumlarımı okuyabilir " +
+        "ve istersen benden kişisel yorum talep edebilirsin."
+    );
+
+    // Burayı istediğin gibi değiştirebilirsin:
+    // Şu an astro.com’un doğum haritası oluşturma sayfasına yönlendiriyoruz.
+    window.open("https://www.astro.com/cgi/chart.cgi", "_blank");
+});
+</script>
+
+</body>
+
+
+</html>

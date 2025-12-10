@@ -1,149 +1,97 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İletişim</title>
-
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(180deg, #6A00F4, #0A0F3C);
-            color: white;
-            text-align: center;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-
-        h1 {
-            margin-top: 40px;
-            font-size: 32px;
-            font-weight: 700;
-        }
-
-        p.subtitle {
-            font-size: 16px;
-            opacity: 0.9;
-            margin-bottom: 20px;
-            max-width: 650px;
-        }
-
-        .contact-box {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 25px;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 450px;
-            text-align: left;
-            margin-top: 20px;
-        }
-
-        label {
-            font-size: 15px;
-            margin-top: 10px;
-            display: block;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border-radius: 8px;
-            border: none;
-            outline: none;
-            font-size: 15px;
-        }
-
-        textarea {
-            height: 120px;
-            resize: none;
-        }
-
-        .btn {
-            display: block;
-            margin-top: 22px;
-            padding: 12px;
-            text-align: center;
-            border: 2px solid #D4AF37;
-            border-radius: 10px;
-            color: #D4AF37;
-            font-size: 17px;
-            text-decoration: none;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background: #D4AF37;
-            color: #0A0F3C;
-            box-shadow: 0 0 15px #D4AF37;
-        }
-
-        .info-box {
-            margin-top: 25px;
-            background: rgba(0, 0, 0, 0.45);
-            padding: 18px;
-            border-radius: 10px;
-            max-width: 650px;
-            font-size: 14px;
-            text-align: left;
-        }
-
-        .info-box strong {
-            color: #FFD966;
-        }
-
-        footer {
-            margin-top: auto;
-            padding: 20px;
-            opacity: 0.6;
-            font-size: 13px;
-        }
-    </style>
-    
+  <meta charset="UTF-8">
+  <title>İletişim</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .contact-container {
+      max-width: 600px;
+      margin: 80px auto;
+      background: rgba(255,255,255,0.9);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .contact-container h1 { text-align: center; color: #0074D9; margin-bottom: 20px; }
+    form label { display: block; margin: 10px 0 5px; font-weight: bold; color: #333; }
+    form input, form textarea {
+      width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc;
+      margin-bottom: 15px; font-size: 14px;
+    }
+    form button {
+      background: #FFD700; color: #000; padding: 12px 20px; border: none;
+      border-radius: 8px; font-weight: bold; cursor: pointer; transition: background 0.3s;
+    }
+    form button:hover { background: #FFA500; }
+    .status { text-align: center; color: #fff; margin-top: 10px; min-height: 22px; }
+  </style>
 </head>
-
 <body>
+  <nav>
+    <a href="index.html">Ana Sayfa</a>
+    <a href="dogum.html">Doğum Haritası</a>
+    <a href="evler.html">12 Ev</a>
+    <a href="burc.html">Burçlar</a>
+    <a href="iletisim.html">İletişim</a>
+    <a href="kader.html">Kader Matrisi</a>
+  </nav>
 
-<h1>İletişim</h1>
-<p class="subtitle">
-    Aşağıdaki form üzerinden bana ulaşabilir veya sosyal medya hesaplarımdan iletişim kurabilirsiniz.
-</p>
+  <div class="contact-container">
+    <h1>İletişim</h1>
 
-<div class="contact-box">
-    <label>Ad Soyad</label>
-    <input type="text" placeholder="Adınız">
+    <!-- Not: action'ı kendi Formspree form URL'inle değiştir -->
+    <form id="contact-form" action="https://formspree.io/f/xblnzaqo" method="POST" novalidate>
+      <!-- Honeypot (spamlere karşı): kullanıcı görmez -->
+      <input type="text" name="_gotcha" style="display:none">
 
-    <label>E‑posta</label>
-    <input type="email" placeholder="ornek@mail.com">
+      <label for="ad">Adınız</label>
+      <input type="text" id="ad" name="ad" required>
 
-    <label>Mesajınız</label>
-    <textarea placeholder="Mesajınızı buraya yazın..."></textarea>
+      <label for="email">E-posta</label>
+      <input type="email" id="email" name="email" required>
 
-    <div class="btn">Mesajı Gönder</div>
-</div>
+      <label for="mesaj">Mesajınız</label>
+      <textarea id="mesaj" name="mesaj" rows="5" required></textarea>
 
-<div class="info-box">
-    <strong>Alternatif İletişim:</strong><br><br>
-    E‑posta: <span style="color:#FFD966;">elify.2502@gmail.com</span><br>
-    Instagram: <span style="color:#FFD966;">@simsek.181</span><br>
-    WhatsApp: <span style="color:#FFD966;">05xx xxx xx xx</span><br><br>
+      <!-- Formspree JSON cevabı için -->
+      <input type="hidden" name="_subject" value="Yeni iletişim mesajı">
+      <button type="submit">Gönder</button>
+      <div class="status" id="form-status"></div>
+    </form>
+  </div>
 
-    
-</div>
+  <script>
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
 
-<footer>
-    © 2025 Astroloji & İletişim – Tüm Hakları Saklıdır
-</footer>
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.textContent = 'Gönderiliyor...';
 
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          // Başarılı: teşekkür sayfana yönlendir
+          window.location.href = 'tesekkur.html';
+          form.reset();
+        } else {
+          // Hata cevabı: mesajı göster
+          const data = await response.json().catch(() => null);
+          status.textContent = data && data.errors
+            ? data.errors.map(e => e.message).join(', ')
+            : 'Gönderimde bir sorun oluştu. Lütfen tekrar deneyin.';
+        }
+      } catch (err) {
+        status.textContent = 'Bağlantı hatası. Lütfen internetinizi kontrol edin ve tekrar deneyin.';
+      }
+    });
+  </script>
 </body>
-<div class="logo">
-    <img src="logo.png" alt="Logo">
-    <span>Astroloji</span>
-</div>
-
 </html>
