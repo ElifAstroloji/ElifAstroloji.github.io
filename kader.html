@@ -3,152 +3,157 @@
 <head>
   <meta charset="UTF-8">
   <title>Kader Matrisi</title>
-  <link rel="stylesheet" href="style.css">
   <style>
     body {
       margin: 0;
-      padding-top: 70px;
       font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #042c63, #0074D9, #87CEFA);
-      background-attachment: fixed;
+      padding-top: 80px; /* Header yüksekliği kadar boşluk */
+      background: #f5f5f5;
     }
 
-    h1 {
-      text-align: center;
-      color: #FFD700;
-      margin: 30px 0;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    /* Sabit menü */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px; /* Header yüksekliği */
+      background: #2e42de;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+      box-shadow: 0 2px 5px rgba(244, 249, 245, 0.1);
+      z-index: 1000;
     }
 
-    .section-title {
-      text-align: center;
-      margin: 40px 0 20px;
-      font-size: 24px;
-      color: #fff;
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #dbdfe3;
     }
 
-    .cards-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    .nav {
+      display: flex;
       gap: 20px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .nav a:hover { color: #0074D9; }
+
+    /* Başlık ve buton */
+    .page-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background: #FFD700;
+      color: #000;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn:hover { background: #FFA500; }
+
+    /* Kart grid */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
       padding: 20px;
     }
 
     .card {
-      background: rgba(255, 254, 254, 0.9);
+      background: #fff;
+      padding: 16px;
       border-radius: 10px;
-      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       text-align: center;
-      box-shadow: 0 4px 10px rgba(154, 28, 28, 0.2);
-      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 15px rgba(185, 86, 47, 0.3);
-    }
-
-    .card h2 {
-      margin-bottom: 10px;
-      color: #0074D9;
-    }
-
-    .card p {
-      font-size: 14px;
-      color: #0c0c0b;
-    }
-
-    .link-box {
-      text-align: center;
-      margin: 40px 0;
-    }
-
-    .link-box a {
-      display: inline-block;
-      background: #FFD700;
-      color: #000;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .link-box a:hover {
-      background: #FFA500;
-    }
+    .card h3 { margin: 0 0 8px; color: #0074D9; }
+    .card p { margin: 0; font-size: 14px; color: #444; }
   </style>
 </head>
 <body>
   <!-- Menü -->
-  <nav>
-    <a href="index.html">Ana Sayfa</a>
-    <a href="dogum.html">Doğum Haritası</a>
-    <a href="evler.html">12 Ev</a>
-    <a href="burc.html">Burçlar</a>
-    <a href="iletisim.html">İletişim</a>
-    <a href="kader.html">Kader Matrisi</a>
-  </nav>
+  <header class="header">
+    <div class="logo">Elif Astroloji</div>
+    <nav class="nav">
+      <a href="index.html">Ana Sayfa</a>
+      <a href="burc.html">Burçlar</a>
+      <a href="dogum.html">Doğum Haritası</a>
+      <a href="kader.html">Kader Matrisi</a>
+    </nav>
+  </header>
 
-  <!-- Başlık -->
-  <h1>Kader Matrisi</h1>
-
-  <!-- 12 Ay Kartları -->
-  <div class="section-title">Aylar</div>
-  <div class="cards-container">
-    <div class="card"><h2>Ocak</h2><p>Ocak ayında doğanlar lider ruhlu, ben diyen.</p></div>
-    <div class="card"><h2>Şubat</h2><p>Şubat ayında doğanlar anaç, anne rahmine bağlı.</p></div>
-    <div class="card"><h2>Mart</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-    <div class="card"><h2>Nisan</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-    <div class="card"><h2>Mayıs</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-    <div class="card"><h2>Haziran</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-    <div class="card"><h2>Temmuz</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-    <div class="card"><h2>Ağustos</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-    <div class="card"><h2>Eylül</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-    <div class="card"><h2>Ekim</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-    <div class="card"><h2>Kasım</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-    <div class="card"><h2>Aralık</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
+  <!-- Başlık ve hesapla butonu -->
+  <div class="page-head">
+    <h1>Kader Matrisi</h1>
+    <a class="btn" href="https://avatarium.life/demo-calculator/">Kader Matrisi Hesapla</a>
   </div>
+  <!-- 12 Ay -->
+  <section class="cards">
+    <div class="card"><h3>Ocak</h3><p>Ben diyebilmek liderdir önce kendi ışığını yansıtmalı sonra başkalarına ışık olmalı.mucize yeni başlangıçların keşiflerin enerjisi başkalarına yol gösterecek yeni yollar açacak kararlı ve bağımsızlardır.</p></div>
+    <div class="card"><h3>Şubat</h3><p>Anne rahmine bağlıdır anaç ruhlu gizemli egzotik kadınsı sezgileri güçlü ortamdaki her türlü gerilimi hisseder.Doğuştan psikologlar diplomat herşeyde seçicidir yiyecek giyim vs insanları toplar biraraya getirirler.</p></div>
+    <div class="card"><h3>Mart</h3><p>Dişil güzel kadındır kraliçedir.Erkekler Güzelliği lüksü sever aile ev konforu pahalı eşyalar önemlidir az olsun kaliteli eşyalar olsun derler kolay para kazanır iş yaparken iyi şans yakalar.</p></div>
+    <div class="card"><h3>Nisan</h3><p>Eril enerji güç kontrol para kariyer yapan iş kurandır.Güvenilir insan sırtına sorumluluk alır ben yaparım der pazarlık yapmayı iyi bilir gururludur insanları nasıl yöneteceğini bilir.</p></div>
+    <div class="card"><h3>Mayıs</h3><p>Hiyerarşi düzeni koruması kuraldır.Babaya saygıdır kendi saygısını otoritesini koruması gerekir akıllı olur eğitim alması gerekir.Aldığı eğitimle başkalarınada bilgi aktarmalı baba toprağını bereketlendiren kişidir.</p></div>
+    <div class="card"><h3>Haziran</h3><p>Sevgi aşk güzellik tasarım moda çekici ve girişken olur kolayca sempati kazanır.Rahat ve neşelidir bulunduğu her ortamda sevgi yaymalıdır.İlişkiyi öğreten kişidir sevgi açı olurlar karşı taraftan ilgi sevgi beklerler Ruhunu seç onun sevdiği şeyleri yap başkası üzülücek diye kendini ihmal etme.</p></div>
+    <div class="card"><h3>Temmuz</h3><p>Hedef zafer belirlemek rekabetçi iç güdüsü olur hareket halindedir hırslı insanlar hedefini belirle planlı yol al iyi şöförlerdir başladığı işi yarım bırakmamalı tamamla bırakacaksan öyle bırak.</p></div>
+    <div class="card"><h3>Ağustos</h3><p>Denge adalet enerjisi analizci insanlar her zaman gerçeği arayış içindedir.hayatına girdiği kişiyi değiştirir dönüştürür.Her gece uyumadan kendine sor terazin dengedemi hak ve adalet en iyi senin ruhun biliyor kendinede haksızlık yapma.</p></div>
+    <div class="card"><h3>Eylül</h3><p>Bilgelik bütünlük derinlik enerjisi bir kitaptan bir kaç cümle okuyup aydınlanma yaşayan insanlardır bilgi alıp bilgiyi paylaşmaları gerekir.Evliliğin içinde bile yalnızlığı yaşarlar aşkın felsefesini çözen insanlardır.</p></div>
+    <div class="card"><h3>Ekim</h3><p>Kaderdir kaderin şansın enerjisidir sezgisi gelişmiş kaderin sevgilisidir enerjisi yüksek herşeyi kendi yapar hayat doludur.Bu hayatın akışını yakalamalı teslim ol akışı yakala.Sen yeni döngü başlatıcısın şansına güven bir şey olmuyorsa zorlama teslimiyette ol senin için iyi olan sana gelecektir.</p></div>
+    <div class="card"><h3>Kasım</h3><p>Güç potansiyel tutku cinsellik demek yaşamdaki ilham soyların yeteneklerini devam ettirirler çalışkan insanları kolayca ikna edebilen her zaman yeniliklere açık gücünü sistemde gösteren insanlardır.</p></div>
+    <div class="card"><h3>Aralık</h3><p>Bu sisteme hizmet için gelmiştir yaptığın iş devletine milletine faydalı olmalı teslimiyettir çok fazla fedakar olmamalı verdiği hizmetin karşılığını almalı yardım etmeyi seven merhametli insanlardır.</p></div>
+  </section>
 
-  <!-- 31 Gün Kartları -->
-  <div class="section-title">Günler</div>
-<div class="cards-container">
-  <div class="card"><h2>1</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>2</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>3</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>4</h2><p>4’ü doğanlar: Ruhunun amacı nedir? Pozitif yönlerin, çakraların...</p></div>
-  <div class="card"><h2>5</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>6</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>7</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>8</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>9</h2><p>9’u doğanlar: Ruhsal yolculuk, içsel bilgelik, çakraların dengesi...</p></div>
-  <div class="card"><h2>10</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>11</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>12</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>13</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>14</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>15</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>16</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>17</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>18</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>19</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>20</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>21</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>22</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>23</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>24</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>25</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>26</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>27</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>28</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>29</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>30</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  <div class="card"><h2>31</h2><p>Buraya yorumunu ekleyebilirsin.</p></div>
-  </div>
-
-  <!-- Hesaplama Linki -->
-  <div class="link-box">
-    <a href="https://avatarium.life/demo-calculator/">Kader Matrisi Hesaplama</a>
-  </div>
-</body>
-</html>
+  <!-- 31 Gün -->
+  <h2 style="margin:20px;">Günler</h2>
+  <section class="cards">
+    <!-- 1’den 31’e kadar -->
+    <div class="card"><h3>1</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>2</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>3</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>4</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>5</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>6</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>7</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>8</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>9</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>10</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>11</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>12</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>13</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>14</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>15</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>16</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>17</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>18</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>19</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>20</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>21</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>22</h3><p>Yorumunu ekleyebilirsin.</p></div>
+    <div class="card"><h3>23</h3><p>Yorumunu ekleyebilirsin.</p></div>
+  <div class="card"><h3>24</h3><p>Buraya yorumunu ekleyebilirsin.</p></div>
+  <div class="card"><h3>25</h3><p>Buraya yorumunu ekleyebilirsin.</p></div>
+  <div class="card"><h3>26</h3><p>Buraya yorumunu ekleyebilirsin.</p></div>
+  <div class="card"><h3>27</h3><p>Buraya yorumunu ekleyebilirsin.</p></div>
+  <div class="card"><h3>28</h3><p>Buraya yorumunu ekleyebilirsin.</p></div>
+  <div class="card"><h3>29</h3><p>Buraya yorumunu ekleyebilirsin.</p></div>
+  <div class="card"><h3>30</h3><p>Buraya yorumunu ekleyebilirsin.</p></div>
+  <div class="card"><h3>31</h3><p>Buraya yorumunu ekleyebilirsin.</p></div>
+</section>
